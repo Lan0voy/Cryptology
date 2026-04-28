@@ -67,6 +67,7 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+<<<<<<< HEAD
 
 
 *.mkv
@@ -81,3 +82,5 @@ Testing/
 Debug/
 Release/
 x64/
+=======
+>>>>>>> 867a48cb28dee0baac96906a2238865524298b67
