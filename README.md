@@ -14,6 +14,7 @@ Inside `CLASSICAL CIPHERS AND THEIR CRYPTOANALYSIS` there are separate projects:
 - `CaesarCipher`
 - `PlayferCipher`
 - `RailFenceCipher`
+- `HillsCryptographicSystem`
 
 ## How to download the repository
 
