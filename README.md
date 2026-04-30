@@ -15,6 +15,7 @@ Inside `CLASSICAL CIPHERS AND THEIR CRYPTOANALYSIS` there are separate projects:
 - `PlayferCipher`
 - `RailFenceCipher`
 - `HillsCryptographicSystem`
+- `VisenersCipher`
 
 ## How to download the repository
 
