@@ -16,6 +16,7 @@ Inside `CLASSICAL CIPHERS AND THEIR CRYPTOANALYSIS` there are separate projects:
 - `RailFenceCipher`
 - `HillsCryptographicSystem`
 - `VisenersCipher`
+- `FrequencyAnalysisCaesarCipher`
 
 ## How to download the repository
 
