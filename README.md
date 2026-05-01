@@ -17,7 +17,8 @@ Inside `CLASSICAL CIPHERS AND THEIR CRYPTOANALYSIS` there are separate projects:
 - `HillsCryptographicSystem`
 - `VisenersCipher`
 - `FrequencyAnalysisCaesarCipher`
-
+- `KaziskiFriedmanMethod`
+  
 ## How to download the repository
 
 First, install Git and a C++ development environment.
