@@ -1,4 +1,4 @@
-// visenere_cipher.hpp
+// vigenere_cipher.hpp
 
 // Include guard to prevent multiple inclusions of this header file
 #pragma once
