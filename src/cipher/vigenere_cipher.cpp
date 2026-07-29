@@ -44,15 +44,13 @@ namespace cryptolibrium {
 
     
     std::string cipher::VigenereCipher::encrypt(const std::string& plaintext) const {
-        std::size_t plaintextLength = plaintext.length();
+        constexpr std::size_t engAlphabetSize = 26;
+        constexpr char engAlphabetBase = 'A';
+
+        std::size_t plaintextLength = plaintext.size();
         std::size_t keyIndex = 0;
-        std::size_t engAlphabetSize = 26;
-
         std::string encryptedText;
-
-        char engAlphabetBase = 'A';
         char keyChar;
-        char plain;
 
         for(std::size_t i = 0; i < plaintextLength; ++i) {
             unsigned char c = plaintext[i];            
@@ -60,22 +58,46 @@ namespace cryptolibrium {
 
             if (isLetter) {
                 keyChar = key_[keyIndex];
-                keyIndex = (keyIndex + 1) % key_.length();
+                keyIndex = (keyIndex + 1) % key_.size();
 
-                plain = std::toupper(c);
-
-                char encrypted = engAlphabetBase + (plain - engAlphabetBase + keyChar - engAlphabetBase) % engAlphabetSize;
+                c = std::toupper(c);
+                c = engAlphabetBase + (c - engAlphabetBase + keyChar - engAlphabetBase) % engAlphabetSize;                
             }
+
+            encryptedText += c;
         }
-
-
-
 
         return encryptedText;
     }
 
 
     std::string cipher::VigenereCipher::decrypt(const std::string& ciphertext) const {
+        constexpr std::size_t engAlphabetSize = 26;
+        constexpr char engAlphabetBase = 'A';
 
+        std::size_t ciphertextLength = ciphertext.size();
+        std::size_t keyIndex = 0;
+        std::string decryptedText;
+        char keyChar;
+
+        for (std::size_t i = 0; i < ciphertextLength; ++i) {
+            unsigned char c = ciphertext[i];
+            const bool isLetter = (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')));
+
+            if (isLetter) {
+                keyChar = key_[keyIndex];
+                keyIndex = (keyIndex + 1) % key_.size();
+
+                c = std::toupper(c);
+                c = engAlphabetBase +   
+                    (c - engAlphabetBase    
+                     - (keyChar - engAlphabetBase)  
+                     + engAlphabetSize) % engAlphabetSize;             
+            }
+
+            decryptedText += c;
+        }
+
+        return decryptedText;
     }
 }    
