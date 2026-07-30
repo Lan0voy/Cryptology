@@ -74,6 +74,15 @@ target_link_libraries(rail_fence_example
     PRIVATE cryptolibrium
 )
 
+add_executable(vigenere_example
+    examples/cipher/classical/vigenere_example.cpp
+)
+
+
+target_link_libraries(vigenere_example
+    PRIVATE cryptolibrium
+)
+
 # Set compiler warnings
 if (MSVC)
     target_compile_options(cryptolibrium PRIVATE /W4)
