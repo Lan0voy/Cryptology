@@ -39,5 +39,5 @@ namespace cryptolibrium::cipher {
 
             // Prepare key by removing spaces and converting to uppercase
             static std::string prepareKey(const std::string& key);
-    }
+    };
 }

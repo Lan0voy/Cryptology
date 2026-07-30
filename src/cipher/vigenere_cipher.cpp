@@ -13,17 +13,31 @@ namespace cryptolibrium {
     
     // Validating key for recomendations by Vigenere Cipher
     void cipher::VigenereCipher::validateKey(const std::string& key) {
+        // Check if the key is empty and throw an exception if it is
         if (key.empty()) {
-            throw std::invalid_argument("Key cannot be empty");
-        }   
+            throw std::invalid_argument("Key cannot be empty.");
+        }
 
-        for (unsigned char c : key) {
-            const bool isUpperCase = (c >= 'A' && c <= 'Z');
-            const bool isLowerCase = (c >= 'a' && c <= 'z');
+        int letterCounter = 0;
 
-            if (!isUpperCase && !isLowerCase) {
-                throw std::invalid_argument("Key must contain only English alphabet letters");
+        // Check if the characters are alphabetic or a whitespace character (space, tab, newline)
+        for (char symbol : key) {
+            const bool isUpper = symbol >= 'A' && symbol <= 'Z';
+            const bool isLower = symbol >= 'a' && symbol <= 'z';
+            const bool isWhitespace = symbol == ' ' || symbol == '\t' || symbol == '\n';
+
+            if (!isUpper && !isLower && !isWhitespace) {
+                throw std::invalid_argument("Key must contain only English alphabetic characters and whitespaces.");
             }
+
+            if (isUpper || isLower) {
+                ++letterCounter;
+            }
+        }
+
+        // Check if the key contains at least one letter and throw an exception if it does not
+        if (letterCounter == 0) {
+            throw std::invalid_argument("Key must contain at least one letter.");
         }
     }
 
