@@ -50,7 +50,11 @@ namespace cryptolibrium {
         preparedKey.reserve(key.size());
 
         for (unsigned char c : key) {
-            preparedKey += static_cast<char>(std::toupper(c));
+            const bool isWhitespace = c == ' ' || c == '\t' || c == '\n';
+
+            if (!isWhitespace) {
+                preparedKey += static_cast<char>(std::toupper(c));
+            }
         }
 
         return preparedKey;
