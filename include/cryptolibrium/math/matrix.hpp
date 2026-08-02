@@ -69,6 +69,10 @@ namespace cryptolibrium::math {
             T* operator()(std::size_t row, std::size_t col) { return &data_[row][col]; };
 
             const T* operator()(std::size_t row, std::size_t col) const { return &data_[row][col]; };
+
+            bool empty() const noexcept { return data_.empty(); };
+            
+            bool isSquare() const;
             
             Matrix transpose() const;
 
@@ -77,8 +81,6 @@ namespace cryptolibrium::math {
             Matrix inverse(T mod) const;
 
             Matrix adjugate() const;
-
-            bool isSquare() const;
 
             T determinant() const;
 
@@ -93,3 +95,5 @@ namespace cryptolibrium::math {
             std::vector<std::vector<T>> data_;
     };
 }
+
+#include "matrix.tpp"
